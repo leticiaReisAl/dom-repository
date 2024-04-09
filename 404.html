@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .column {
+            width: 45%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #result {
+            min-height: 200px;
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="column">
+        <h2>Exemplo Funcional</h2>
+        <div id="result">
+
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Código do Exemplo</h2>
+        <pre id="code">
+    </pre>
+    </div>
+
+    <script>
+
+        var elementById = document.getElementById('result');
+        elementById.innerHTML = '<h3>getElementById()</h3><p>Selecionou este elemento pelo seu ID e modificou seu conteúdo.</p>';
+
+        var elementsByClass = document.getElementsByClassName('column');
+        var elementsByClassText = '<h3>getElementsByClassName()</h3><p>Selecionou ' + elementsByClass.length + ' elementos com a classe "column".</p>';
+        elementById.innerHTML += elementsByClassText;
+
+        var elementsByTag = document.getElementsByTagName('div');
+        var elementsByTagText = '<h3>getElementsByTagName()</h3><p>Selecionou ' + elementsByTag.length + ' elementos da tag &lt;div&gt;.</p>';
+        elementById.innerHTML += elementsByTagText;
+
+        var newElement = document.createElement('p');
+        newElementText = '<h3>createElement()</h3> <p>Criou este parágrafo dinamicamente';
+        elementById.appendChild(newElement);
+        elementById.innerHTML += newElementText;
+
+        var code = document.getElementById('code');
+        code.textContent = `// Exemplo usando elementos do DOM
+
+// Selecionando um elemento pelo seu id e modificando seu conteúdo
+var elementById = document.getElementById('result');
+elementById.innerHTML = '<h3>getElementById()</h3><p>Selecionou este elemento 
+    pelo seu ID e modificou seu conteúdo.</p>';
+
+// Selecionando elementos pela sua classe
+var elementsByClass = document.getElementsByClassName('column');
+var elementsByClassText = '<h3>getElementsByClassName()</h3><p>Selecionou ' 
+    + elementsByClass.length + ' elementos com a classe "column".</p>';
+elementById.innerHTML += elementsByClassText;
+
+// Selecionando elementos pela sua tag
+var elementsByTag = document.getElementsByTagName('div');
+var elementsByTagText = '<h3>getElementsByTagName()</h3><p>Selecionou '
+     + elementsByTag.length + ' elementos da tag &lt;div&gt;.</p>';
+elementById.innerHTML += elementsByTagText;
+
+// Criando um novo elemento e adicionando-o ao documento
+var newElement = document.createElement('p');
+newElement.textContent = 'createElement() - Criou este parágrafo dinamicamente.';
+elementById.appendChild(newElement);`;
+    </script>
+</body>
+
+</html>
